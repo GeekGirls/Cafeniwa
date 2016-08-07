@@ -19,6 +19,9 @@ public class SetCafeInfoDialog : MonoBehaviour {
 	public Button coupon2_button;
 	public Button coupon3_button;
 
+  public GameObject coupon_dialog;
+  public GameObject cafe_dialog;
+
 	// Use this for initialization
 	void Start () {
 		SetCafeInfoTest();
@@ -104,5 +107,11 @@ public class SetCafeInfoDialog : MonoBehaviour {
 		// coupon_dialog を表示して
 		// coupon_id を引数に SetCouponInfo を呼び出す
 		// ただし，データベースが使えないときは， SetCouponInfoTest を呼び出す
-	}
+    coupon_dialog.SetActive(true);
+    cafe_dialog.SetActive(false);
+    SetCouponDialog coupon = coupon_dialog.GetComponent<SetCouponDialog> () as SetCouponDialog;
+    if (coupon != null) {
+      coupon.SetCouponInfoTest();
+    }
+  }
 }
