@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class SetCouponDialog : MonoBehaviour {
+public class SetCafeInfoDialog : MonoBehaviour {
 
 	public Text cafe_name;
 	public Text cafe_url;
@@ -17,13 +17,14 @@ public class SetCouponDialog : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		SetCafeInfoTest();
 	}
 
 	// Update is called once per frame
 	void Update () {
 	}
 
-	public void SetCouponInfoTest () {
+	public void SetCafeInfoTest () {
 		cafe_name.text = "Cafe name";
 		cafe_url.text = "http://cafe_url.com";
 		cafe_count.text = "入店回数：5回";
@@ -35,7 +36,7 @@ public class SetCouponDialog : MonoBehaviour {
 		coupon3_used.text = "未使用";
 	}
 
-	public void SetCouponInfo (int cafe_id) {
+	public void SetCafeInfo (int cafe_id) {
 		DataBaseHandler db = new DataBaseHandler();
 
 		Cafe cafe = db.getCafe(cafe_id);
