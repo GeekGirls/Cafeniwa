@@ -28,19 +28,19 @@ public class Cafe : MonoBehaviour {
 
 
 	public int getId() {
-	  return id;
+        return id;
 	}
 
 	public string getName() {
-	  return name;
+        return name;
 	}
 
 	public string getUrl() {
-	  return url;
+        return url;
 	}
 
 	public int getCount() {
-	  return count;
+        return count;
 	}
 
 	public int getUserId() {
