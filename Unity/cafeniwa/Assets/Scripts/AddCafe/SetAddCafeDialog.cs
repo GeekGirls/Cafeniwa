@@ -68,16 +68,13 @@ public class SetAddCafeDialog : MonoBehaviour {
     selected_cafe_image = cafe_image.name;
     selected.transform.parent = cafe_image.transform;
     selected.transform.localPosition = new Vector3(0, 0, 0);
-    Debug.Log(selected_cafe_image);
+    Debug.Log("選択したイメージ (" + selected_cafe_image + ")");
   }
 
   void OkClick(){
     //以下データベースが使えるときのコード
     //DataBaseHandler db = new DataBaseHandler();
     //db.AuthenticateCafe(current_cafe.getId(), "color", selected_cafe_image);
-
-    Debug.Log(current_cafe.getId());
-    Debug.Log(selected_cafe_image);
     add_cafe_diralog.SetActive(false);
   }
 

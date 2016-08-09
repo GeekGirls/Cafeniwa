@@ -7,9 +7,12 @@ public class InstantiateCafeIcon : MonoBehaviour {
 
 	public GameObject cafe_list_field;
 
+  public GameObject add_cafe_diralog;
+
 	// Use this for initialization
 	void Start () {
-    //仮のカフェデータ
+
+    //以下テスコード
     Cafe cafe1 = new Cafe(1,"cafe1","sample",1,1,0,1,"pink",0,0);
     Cafe cafe2 = new Cafe(2,"cafe2","sample",1,1,0,1,"pink",0,0);
     Cafe cafe3 = new Cafe(3,"cafe3","sample",1,1,0,1,"pink",0,0);
@@ -45,10 +48,14 @@ public class InstantiateCafeIcon : MonoBehaviour {
 
 	}
 
-	void onClick (int id) {
-		Debug.Log(id);
+	void onClick (int cafe_id) {
+		Debug.Log("追加するカフェ (" + cafe_id.ToString() + ")");
 		//DataBaseHandler db = new DataBaseHandler();
 		//db.AuthenticateCafe(id)
-
+    add_cafe_diralog.SetActive(true);
+    SetAddCafeDialog dialog = add_cafe_diralog.GetComponent<SetAddCafeDialog> () as SetAddCafeDialog;
+    if (dialog != null){
+      dialog.SetAddCafeInfo(cafe_id);
+    }
 	}
 }
