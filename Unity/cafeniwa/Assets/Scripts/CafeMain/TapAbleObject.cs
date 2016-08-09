@@ -4,7 +4,7 @@ using System.Collections;
 public class TapAbleObject : MonoBehaviour {
 
 	public GameObject dialog;
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown(0)) {
@@ -14,9 +14,9 @@ public class TapAbleObject : MonoBehaviour {
 
 			if (Physics.Raycast(ray, out hit)){
 				dialog.SetActive (true);
-				SetCouponDialog coupon = dialog.GetComponent<SetCouponDialog> () as SetCouponDialog;
+				SetCafeInfoDialog coupon = dialog.GetComponent<SetCafeInfoDialog> () as SetCafeInfoDialog;
 				if (coupon != null) {
-					coupon.SetCouponInfoTest ();
+					coupon.SetCafeInfoTest ();
 				}
 			}
 		}
