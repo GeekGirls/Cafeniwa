@@ -24,11 +24,8 @@ public class SetAddFriendDialog : MonoBehaviour {
 
 	}
 
-  public void SetAddFriendInfo (int f_id){
-    //以下データベースが使えるときのコード
-    //DataBaseHandler db = new DataBaseHandler();
-    //current_friend = db.getCafe(cafe_id);
-    current_friend = new User(1,"sample1","アリス","friend",1);
+  public void SetAddFriendInfo (User friend){
+    current_friend = friend;
 
     friend_name.text = current_friend.getName();
 
@@ -37,10 +34,15 @@ public class SetAddFriendDialog : MonoBehaviour {
   }
 
   void OkClick(){
-    //以下データベースが使えるときのコード
-    //DataBaseHandler db = new DataBaseHandler();
-    //db.AuthenticateFriend(current_cafe.getId());
-    add_friend_diralog.SetActive(false);
+    #if UNITY_ANDROID && !UNITY_EDITOR
+      // Android で動かしたとき: 友達を認証してダイアログを閉じる
+      DataBaseHandler db = new DataBaseHandler();
+      db.AuthenticateFriend(current_friend.getId());
+      add_friend_diralog.SetActive(false);
+    #else
+      // Unity で動かしたとき: ダイアログを閉じる
+      add_friend_diralog.SetActive(false);
+    #endif
   }
 
   void CancelClick(){
