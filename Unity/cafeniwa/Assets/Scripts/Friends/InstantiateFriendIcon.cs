@@ -10,18 +10,20 @@ public class InstantiateFriendIcon : MonoBehaviour {
   // Use this for initialization
   void Start () {
 
-    //以下テストコード
-    User friend1 = new User(1,"sample1","アリス","friend",1);
-    User friend2 = new User(2,"sample2","ボブ","friend",1);
-    User friend3 = new User(3,"sample3","キャロル","friend",1);
-    List<User> friend_list = new List<User>();
-    friend_list.Add(friend1);
-    friend_list.Add(friend2);
-    friend_list.Add(friend3);
-
-    //以下データベースが使えるときの処理
-    //DataBaseHandler db = new DataBaseHandler();
-    //List<User> friend_list = db.getFriends();
+    #if UNITY_ANDROID && !UNITY_EDITOR
+      // Android で動かしたとき: データベースからデータを取り出す
+      DataBaseHandler db = new DataBaseHandler();
+      List<User> friend_list = db.getFriends();
+    #else
+      // Unity で動かしたとき: ダミーデータを作る
+      User friend1 = new User(1,"sample1","アリス","friend",1);
+      User friend2 = new User(2,"sample2","ボブ","friend",1);
+      User friend3 = new User(3,"sample3","キャロル","friend",1);
+      List<User> friend_list = new List<User>();
+      friend_list.Add(friend1);
+      friend_list.Add(friend2);
+      friend_list.Add(friend3);
+    #endif
 
     //配置位置の座標
     Vector3 position = new Vector3(0,0,0);
@@ -30,7 +32,7 @@ public class InstantiateFriendIcon : MonoBehaviour {
 
       foreach(User friend in friend_list){
         string f_name = friend.getName();
-//        int f_id = friend.getId();
+        // int f_id = friend.getId();
 
         // アイコン生成
         GameObject friend_icon = Instantiate(friend_icon_prefab, position, Quaternion.identity) as GameObject;
@@ -59,7 +61,7 @@ public class InstantiateFriendIcon : MonoBehaviour {
 
   void onClick () {
     // TODO: friend_id を CafeMain に渡す
-      LoadScene ls = new LoadScene();
-      ls.ToCafeMain();
+    LoadScene ls = new LoadScene();
+    ls.ToCafeMain();
   }
 }
