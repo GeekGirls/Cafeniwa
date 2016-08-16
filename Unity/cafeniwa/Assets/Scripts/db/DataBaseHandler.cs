@@ -10,29 +10,6 @@ public class DataBaseHandler : MonoBehaviour {
             AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
             AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
             db = new AndroidJavaObject("com.example.databasehandlerlibrary.DatabaseHandler", activity);
-
-            /*
-            // 以下テストデータ
-            // User "user_name"
-            db.Call("addFriend", "ikeda", "aaaaaaa");
-            db.Call("addFriend", "takahashi", "bbbbbbb");
-            db.Call("addFriend", "okabe", "ccccccc");
-
-            // Cafe "cafe_name", "cafe_url", "user_id"
-            db.Call("addCafe", "geekcafe", "geelcafe.com", 1);
-            db.Call("addCafe", "coffeehouse", "coffeehouse.com", 1);
-            db.Call("addCafe", "moyau", "moyau.com", 2);
-            db.Call("addCafe", "pione", "pione.com", 3);
-            db.Call("addCafe", "masuka", "masuka.com", 4);
-
-            // Coupon "coupon_name", "level", "cafe_id"
-            db.Call("addCoupon", "coupon1", 1, 1);
-            db.Call("addCoupon", "coupon2", 4, 2);
-            db.Call("addCoupon", "coupon3", 1, 3);
-            db.Call("addCoupon", "coupon4", 1, 4);
-            db.Call("addCoupon", "coupon5", 1, 5);
-            db.Call("addCoupon", "coupon6", 1, 5);
-            */
         #endif
     }
 
@@ -216,12 +193,86 @@ public class DataBaseHandler : MonoBehaviour {
         db.Call("MoveCafe", id, block_number);
     }
 
+    // クーポンを使う
+    // 引数: id
+    // 戻値: なし
     public void UseCoupon(int coupon_id){
         db.Call("UserCoupon", coupon_id);
     }
 
+    // プロフィール編集
+    // 引数: id
+    // 戻値: なし
     public void EditProfile(int user_id, string user_name){
         db.Call("EditProfile", user_id, user_name);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////
+    // 以下 テスト用
+    //////////////////////////////////////////////////////////////////////////////
+
+    // データベース作成
+    public void CreateDataBase(){
+      db.Call("CreateDataBase");
+      /* 作られるデータベースは以下の通り
+
+      ######## オーナー ##########
+      アプリを初めて起動したときに以下のデータが作られる
+      --
+      名前: owner
+      uid: owner-no-uid
+
+      ######## 認証済みの友達 ########
+      名前: たっちょ
+      uid: taccho-no-uid
+      --
+      名前: ebako
+      uid: ebako-no-uid
+
+      ######## 未認証の友達 ########
+      名前: dj
+      uid: dj-no-uid
+      --
+      名前: tomoko
+      uid: tomoko-no-uid
+      --
+      名前: mari
+      uid: mari-no-uid
+      --
+      名前: 池田
+      uid: ikeda-no-uid
+      --
+      名前: yoshinaga
+      uid: yoshinaga-no-uid
+
+      ######## 認証済みのカフェ ########
+      名前: geek cafe
+      url: http://geekcafe.com
+      入店回数: 5回
+      クーポン: ドリンク10%オフ (レベル2 利用済み)
+              ドリンク20%オフ (レベル5 未使用)
+              ドリンク1杯無料 (レベル10 使用不可)
+      --
+      名前: Jcafe
+      url: http://jcafe.com
+      入店回数: 2回
+      クーポン: ドリンク1杯無料 (レベル2 未使用)
+              ケーキ10%オフ (レベル5 使用不可)
+              ケーキ20%オフ (レベル10 使用不可)
+
+      ######## 未認証のカフェ ########
+      名前: きらめき
+      url: http://kiwameki.com
+      入店回数: 1回
+      クーポン: ドリンク5%オフ (レベル2 使用不可)
+              ドリンク10%オフ (レベル5 使用不可)
+              ドリンク20%オフ (レベル10 使用不可)
+      */
+    }
+
+    // データベース削除
+    public void DeleteDataBase(){
+      db.Call("DeleteDataBase");
     }
 
     //////////////////////////////////////////////////////////////////////////////

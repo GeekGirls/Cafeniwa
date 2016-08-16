@@ -30,7 +30,7 @@ public class SetAddCafeDialog : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-    SetAddCafeInfo(1);
+
 	}
 
 	// Update is called once per frame
@@ -38,13 +38,8 @@ public class SetAddCafeDialog : MonoBehaviour {
 
 	}
 
-  public void SetAddCafeInfo (int cafe_id) {
-    //以下テストコード
-    current_cafe = new Cafe(1,"cafe1","sample",1,1,0,1,"pink",0,0);
-
-    //以下データベースが使えるときのコード
-    //DataBaseHandler db = new DataBaseHandler();
-    //current_cafe = db.getCafe(cafe_id);
+  public void SetAddCafeInfo (Cafe cafe) {
+    current_cafe = cafe;
 
     cafe_name.text = current_cafe.getName();
     cafe_url.text = current_cafe.getUrl();
@@ -72,10 +67,13 @@ public class SetAddCafeDialog : MonoBehaviour {
   }
 
   void OkClick(){
-    //以下データベースが使えるときのコード
-    //DataBaseHandler db = new DataBaseHandler();
-    //db.AuthenticateCafe(current_cafe.getId(), "color", selected_cafe_image);
-    add_cafe_diralog.SetActive(false);
+    #if UNITY_ANDROID && !UNITY_EDITOR
+      DataBaseHandler db = new DataBaseHandler();
+      db.AuthenticateCafe(current_cafe.getId(), "color", int.Parse(selected_cafe_image));
+      add_cafe_diralog.SetActive(false);
+    #else
+      add_cafe_diralog.SetActive(false);
+    #endif
   }
 
   void CancelClick(){
