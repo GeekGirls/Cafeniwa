@@ -14,23 +14,27 @@ public class LoadScene : MonoBehaviour {
 
 	}
 
-  public void ToCafeMain () {
+    public void ToCafeMain () {
 		SceneManager.LoadScene("cafe_main");
 	}
 
-  public void ToAddCafe () {
+    public void ToAddCafe () {
 		SceneManager.LoadScene("add_cafe");
 	}
 
-  public void ToFriends () {
+    public void ToFriends () {
 		SceneManager.LoadScene("friends");
 	}
 
-  public void ToAddFriend () {
+    public void ToAddFriend () {
 		SceneManager.LoadScene("add_friend");
-	}
+    }
 
-	public void ToProfile () {
+    public void ToProfile () {
 		SceneManager.LoadScene("profile");
-	}
+    }
+
+    public void ToCreateUser () {
+        SceneManager.LoadScene("create_user");
+    }
 }
