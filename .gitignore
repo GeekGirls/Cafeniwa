@@ -53,3 +53,22 @@ sysinfo.txt #Unity3D Generated File On Crash Reports
 /build
 /captures
 
+# ================ #
+# Rails            #
+# ================ #
+# Ignore bundler config.
+/rails/Cafeniwa/.bundle
+# Ignore the default SQLite database.
+/rails/Cafeniwa/db/*.sqlite3
+/rails/Cafeniwa/db/*.sqlite3-journal
+# Ignore all logfiles and tempfiles.
+/rails/Cafeniwa/log/*
+/rails/Cafeniwa/tmp/*
+!/log/.keep
+!/tmp/.keep
+/rails/Cafeniwa/node_modules
+/rails/Cafeniwa/yarn-error.log
+# Ignore other files.
+/rails/Cafeniwa/.byebug_history
+/rails/Cafeniwa/vendor/bundle
+/rails/Cafeniwa/config/secrets.yml
