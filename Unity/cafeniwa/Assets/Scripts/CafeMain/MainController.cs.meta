@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 06a6f83cc8aed44f380dca3abc784952
-timeCreated: 1469966055
+timeCreated: 1495951087
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - text: {instanceID: 0}
+  - coupon_dialog: {fileID: 170832, guid: fc6384cf3889d42d49fad6a110c35e80, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

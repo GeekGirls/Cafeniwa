@@ -1,10 +1,24 @@
 fileFormatVersion: 2
 guid: b1d44a3c8b2b54a3da19c5e047e42970
-timeCreated: 1470249824
+timeCreated: 1495954521
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cafe_name: {instanceID: 0}
+  - cafe_url: {instanceID: 0}
+  - cafe_count: {instanceID: 0}
+  - coupon1_name: {instanceID: 0}
+  - coupon2_name: {instanceID: 0}
+  - coupon3_name: {instanceID: 0}
+  - coupon1_used: {instanceID: 0}
+  - coupon2_used: {instanceID: 0}
+  - coupon3_used: {instanceID: 0}
+  - coupon1_button: {instanceID: 0}
+  - coupon2_button: {instanceID: 0}
+  - coupon3_button: {instanceID: 0}
+  - coupon_dialog: {fileID: 145604, guid: eb3b9fae87c9a4e4faf8ffb3e1cace8f, type: 2}
+  - cafe_dialog: {fileID: 170832, guid: fc6384cf3889d42d49fad6a110c35e80, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

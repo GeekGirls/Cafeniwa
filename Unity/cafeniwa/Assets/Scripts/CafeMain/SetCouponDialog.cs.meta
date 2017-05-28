@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: e416991878a69492492b717794677bba
-timeCreated: 1470540887
+timeCreated: 1495954657
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - coupon_name: {instanceID: 0}
+  - ok_button: {instanceID: 0}
+  - cancel_button: {instanceID: 0}
+  - coupon_dialog: {fileID: 145604, guid: eb3b9fae87c9a4e4faf8ffb3e1cace8f, type: 2}
+  - cafe_dialog: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
