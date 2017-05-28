@@ -2,11 +2,16 @@
 using System.Collections;
 
 public class Cafe_behavior : MonoBehaviour {
+	public CircleCollider2D col;
+
     
  	void OnMouseEnter() {
         Vector3 tmp = transform.position;
         tmp.y += 1;
         transform.position = tmp;
+		tmp = col.offset;
+		tmp.y -= 1 * col.radius;
+		col.offset = tmp;
 
         GameObject cafeobj;
 
@@ -19,7 +24,10 @@ public class Cafe_behavior : MonoBehaviour {
     void OnMouseExit() {
         Vector3 tmp = transform.position;
         tmp.y -= 1;
-        transform.position = tmp;
+		transform.position = tmp;
+		tmp = col.offset;
+		tmp.y += 1 * col.radius;
+		col.offset = tmp;
     	}
 
 
@@ -33,7 +41,7 @@ public class Cafe_behavior : MonoBehaviour {
 
     	    // Use this for initialization
     void Start () {
-
+		this.col = this.GetComponent<CircleCollider2D> () as CircleCollider2D;
     }
 
     // Update is called once per frame
