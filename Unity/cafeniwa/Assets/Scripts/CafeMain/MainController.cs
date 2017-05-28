@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class MainController : MonoBehaviour {
 
 	public Text text;
-	public Canvas coupon_dialog;
+	public GameObject coupon_dialog;
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +14,7 @@ public class MainController : MonoBehaviour {
 			User user = db.getUser (1);
 			text.text = user.getName () + "のカフェ庭";
 		}
+		coupon_dialog.SetActive (false);
 	}
 	
 	// Update is called once per frame

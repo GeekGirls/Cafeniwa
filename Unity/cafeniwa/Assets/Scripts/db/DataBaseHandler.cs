@@ -17,6 +17,7 @@ public class DataBaseHandler : MonoBehaviour {
     // 引数: id
     // 戻値: User
     public User getUser(int id){
+		#if UNITY_ANDROID
         string str = db.Call<string>("getUser", id);
         List<string> ar = single_parser(str);
         User user = new User(int.Parse(ar[0]), // id
@@ -25,7 +26,17 @@ public class DataBaseHandler : MonoBehaviour {
                              ar[3], // role
                              int.Parse(ar[4]) //auth
                              );
+		#elif UNITY_EDITOR
+		User user = new User(
+			1, // id
+			"1", // uid
+			"はなちゃん", // name
+			"1", // role
+			1 //auth
+		);
+		#endif
         return user;
+
     }
 
     // id のカフェを1つ取得して Cafe を返却
