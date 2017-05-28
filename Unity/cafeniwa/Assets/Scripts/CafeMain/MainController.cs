@@ -7,6 +7,8 @@ public class MainController : MonoBehaviour {
 	public Text text;
 	public GameObject coupon_dialog;
 
+	public int cafe_id = 0;
+
 	// Use this for initialization
 	void Start () {
 		if (text != null) {
@@ -19,5 +21,18 @@ public class MainController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetMouseButtonUp(0)
+			&& !coupon_dialog.activeInHierarchy
+			&& cafe_id != 0){
+			Debug.Log (cafe_id);
+			ShowCafeInfoDialog ();
+		}
+	}
+
+	void ShowCafeInfoDialog() {
+		SetCafeInfoDialog dialog_script = coupon_dialog.GetComponent<SetCafeInfoDialog> () as SetCafeInfoDialog;
+		dialog_script.SetCafeInfoTest ();
+		coupon_dialog.SetActive (true);
 	}
 }
+	

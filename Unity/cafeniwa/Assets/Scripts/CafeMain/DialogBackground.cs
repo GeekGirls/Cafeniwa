@@ -8,17 +8,11 @@ public class DialogBackground : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		Button button = GetComponent<Button> ()as Button;
+		button.onClick.AddListener (OnClick);
 	}
 
 	public void OnClick() {
-		if (dialog != null) {
-			dialog.SetActive (false);
-		}
+		dialog.SetActive (false);
 	}
 }
